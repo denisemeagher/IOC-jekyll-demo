@@ -1,13 +1,43 @@
 ---
 layout: default
-title: Homepage
+title: Home Page
+news:
+ - title: Big Sale
+   description: exciting things are happening
+   date: 13th Jan
+   category: promo
+   url: https://www.sale.com
+ - title: New Puppy
+   description: dogs are cool
+   date: 4th Apr
+   category: BTS
+   url: https://www.sale.com
+ - title: Free Food
+   description: come fill your tummy
+   date: 11th June
+   category: perks
+   url: https://www.sale.com
 ---
 
-<section>
-    THis is a page section only on the homepage
-</section>
 
-<section>
-    THis is another page section only on the homepage
-</section>
 
+<section class="grid-spaceBetween padded bg-featured">
+
+
+    {% for item in page.news %}
+    <!----- First Card ----> 
+    <div class="col-4_xs-8">
+    <div class="card"> 
+            <div class="bg-image portrait bg-image-1">
+                <span class="light-text"> {{item.category}} </span>
+            </div>
+            <div class="post-info">
+                <p class="date"> {{item.date}} </p> 
+                <h3>{{item.title}}</h3>
+                <p> {{item.description}}</p>
+                <a href="{{item.url}}"> Find out more &#10143; </a> 
+            </div>
+        </div>   
+    </div>
+    {% endfor %}
+</section>
